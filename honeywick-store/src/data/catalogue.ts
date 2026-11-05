@@ -40,8 +40,8 @@ export const PRODUCTS: Product[] = [
     description: 'Our flagship clear glass tumbler candle hand-poured with 100% natural soy wax and adorned with the signature Honeywick pastel emblem.',
     longDescription: 'DELULU is crafted for your cozy evenings, deep reading sessions, or weekend self-care rituals. Poured into a heavy thermal tumbler with an organic cotton wick, it casts a soft, mesmerizing glow while gently releasing clean, non-toxic aromas that fill your room without overwhelming the senses.',
     images: [
-      '/images/products/delulu-hero-lit.jpeg',
       '/images/products/delulu-unlit.jpeg',
+      '/images/products/delulu-hero-lit.jpeg',
       '/images/products/honeywick-packaging.jpeg'
     ],
     has3DModel: true,

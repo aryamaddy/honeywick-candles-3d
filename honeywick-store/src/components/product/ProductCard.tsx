@@ -11,9 +11,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { openProduct } = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
 
-  // Switch to alternate lit image on hover if available
-  const displayImage = isHovered && product.images.length > 1 ? product.images[1] : product.images[0];
-
   return (
     <div
       onClick={() => openProduct(product.slug)}
@@ -23,12 +20,25 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       {/* 4:5 Studio Image Frame */}
       <div className="relative aspect-[4/5] w-full bg-cream overflow-hidden">
+        {/* Base Unlit Image */}
         <img
-          src={displayImage}
+          src={product.images[0]}
           alt={product.name}
           className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
+
+        {/* Hover Lit Image with Smooth Fade */}
+        {product.images.length > 1 && (
+          <img
+            src={product.images[1]}
+            alt={`${product.name} glowing`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 ease-in-out group-hover:scale-105 ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+            loading="lazy"
+          />
+        )}
 
         {/* Top Badges */}
         <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
